@@ -41,9 +41,15 @@
 \newcommand\stgenc{\algo{SE}}
 \newcommand\stgdec{\algo{SD}}
 
+\title{Analysis of Stegosystems}
+\author{Sam Britt, Tushar Humbe, Ben Perry, Sanchita Vijayvargiya}
+\date{December 7, 2012}
+
 \begin{document}
+\maketitle
+\section{Introduction}
 
-
+\section{Security Definitions}
 \subsection{Primitives}
 Let $P_X$ be a probability mass function with support $\chi$, where $X$
 is a discrete random variable taking the values in $\chi$. The
@@ -81,9 +87,9 @@ $x_0$ to within a single coin flip. Indeed, evaluating
 Eqn.~\eqref{eq:min-entropy} for such a distribution shows that
 $H_\infty\l( X \r) = 1$.
 
-Give two probability mass functions $P_X$ and $P_Y$, both with support
-$\chi$, the \emph{relative entropy}, also called the Kullback-Leibler
-divergence, from $P_X$ to $P_Y$ is defined to be
+Given two probability mass functions $P_X$ and $P_Y$, both with
+support $\chi$, the \emph{relative entropy}, also called the
+Kullback-Leibler divergence, from $P_X$ to $P_Y$ is defined to be
 \begin{equation}
   D \l( P_X \concat P_Y \r) =
   \sum_{x \in \chi} P_X(x) \lg \frac{P_X(x)}{P_Y(x)}.
@@ -100,7 +106,7 @@ timestamped bit sequences; i.e., a channel \channel\ is a distribution
 with support $\set{\l( \bit, t_1 \r), \l( \bit, t_2 \r), \ldots }$,
 where each $t_i \le t_{i+1}$. The intent is to model communication,
 where not just the content but also the timing of the communication
-may be relevant. 
+may be relevant.
 
 \subsection{Security Definitions}
 Hopper paper:
@@ -144,5 +150,10 @@ $\channel$ (USS-CHA-$\channel$) if it is $\l( t, q, \ell,
 $H_\infty\l( \channel_h^b \r) > 1 \forall h$ drawn from \channel.
 
 Cachin paper:
+
+\section{Bad Stego}
+\section{Good Stego}
+\section{Conclusion}
+\section{References}
 
 \end{document}
