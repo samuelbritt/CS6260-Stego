@@ -215,6 +215,15 @@ definition:
     the particular history leading up to his experiment.
 \end{itemize}
 
+Though Cachin's definitions are weaker, they are not without merit.
+Hopper's security schemes require perfect oracles---oracles that can
+sample from $\channel_h$ for arbitrary $h$, can be ``rewound," etc.
+Given the application, the lack of such an available oracle may make
+implementation of security schemes (and proof of their security)
+difficult or impossible. In contrast, knowledge about $P_S$ and
+$P_C$ might be easier to determine for a scheme couched in Cachin's
+framework.
+
 \subsection{Good Stego}
 
 \section{Bad Stego}
