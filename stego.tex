@@ -1,0 +1,121 @@
+\documentclass{article}
+
+\usepackage{mathpazo}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[alsoload=binary]{siunitx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{fancyvrb}
+\usepackage[section]{placeins}
+\usepackage{flafter}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage{hyperref}
+
+% a bit more compact
+\renewcommand\l{\mathopen{}\left}
+\renewcommand\r{\right}
+
+\newcommand\abs[1]{\l\vert #1 \r\vert}
+
+% no section numbers
+\setcounter{secnumdepth}{-2}
+
+% leave notes to yourself
+\newcommand\todo[1]{\textcolor{red}{\textsc{todo}: #1}}
+
+\input{header}
+
+\newcommand\channel{\ensuremath{\mathcal C}}
+\newcommand\sschac{\attack{ss-cha-$\channel$}}
+
+% Steganography
+\newcommand\stg{\scheme{S}}
+\newcommand\stgenc{\algo{SE}}
+\newcommand\stgdec{\algo{SD}}
+
+\begin{document}
+
+Cachin paper:
+
+Let $P_X$ be a probability mass function with support $\chi$, where $X$
+is a discrete random variable taking the values in $\chi$. The
+\emph{entropy} of $X$ is
+\begin{equation*}
+  H(X) = E\l( -\lg P_X \r),
+\end{equation*}
+where $E(\cdot)$ is the expected value (weighted average) function;
+that is,
+\begin{equation}
+  H(X) = - \sum_{x\in \chi} P_X(x) \lg P_X(x).
+  \label{eq:entropy}
+\end{equation}
+Intuitively, the entropy of $X$ is a measure of the number of bits of
+uncertainty in $X$. For example, suppose $\chi$ is the set of all
+$n$-bit strings, and $P_X(x) = 1 / 2^n$ for any $x \in \chi$; that
+is, every $n$-bit string is equally likely to be pulled from $P_X$.
+This would represent a distribution of maximum uncertainty, and it is
+straightforward to show that Eqn.~\eqref{eq:entropy} evaluates to $n$
+in this case. In fact, $H(X) = \lg \abs{\chi}$ is an upper bound for
+$H$, where $\abs \chi$ denotes the cardinality of $\chi$.
+
+The \emph{minimum entropy} of a distribution $P_X$ is defined as
+\begin{equation}
+  H_\infty\l( X \r) = \min_{x \in \chi} \l\{ -\lg P_X(x) \r\}
+  \label{eq:min-entropy}
+\end{equation}
+This can be understood as a measure of uncertainty for the ``most
+probable'' element in $\chi$ according to $P_X$. For example, if there
+is some element $x_0$ with $P_X(x_0) = 1$, then $H_\infty(X) = 0$
+(there is no uncertainty in $X$). Suppose the most probable element
+$x_0$ has probability $P_X(x_0) = 1/2$. Intuitively, the uncertainty
+is unity; that is, we can guess that the next value of $X$ will be $x_0$
+to within a single coin flip. Indeed, evaluating
+Eqn.~\eqref{eq:min-entropy} for such a distribution shows that
+$H_\infty\l( X \r) = 1$.
+
+Hopper paper:
+
+Give the warden $W$ access to $M\l( h \r)$, which returns draws from
+$\channel_h^b$, and an oracle $\Ora$. The oracle $\Ora$ is either
+$\stgenc_k$ or a function $O(\cdot, \cdot)$, where $O(m, h)$ simply
+returns draws from $\channel_h^{\abs{\stgenc_k\l( m, h \r)}}$. The
+warden also has access to randomness $r$. The warden's advantage
+against the steganographic secrecy under chosen hiddentext attack for
+channel $\channel$ of stegosystem $\stg$ is defined by
+Hopper et.\ al to be
+\begin{align*}
+  \advan_{\stg, \channel}^\sschac \l( W \r) = \abs {
+  \Pr_{k, r, M, \stgenc} \l[ W_r ^{M, \stgenc_k(\cdot, \cdot)}
+  \text{accepts} \r]
+  -
+  \Pr_{r, M, O} \l[ W_r ^{M, O(\cdot, \cdot)}
+  \text{accepts} \r]
+}.
+\end{align*}
+A stegosystem $\stg$ is \emph{$(t, q, \ell,
+\epsilon)$-steganographically secret under chosen hiddenttext attack}
+for channel $\channel$ (SS-CHA-$\channel$) if, for any warden $W$
+making at most $q$ queries totaling at most $\ell$ bits of hiddentext,
+and running in time at most $t$,
+\begin{equation*}
+  \advan_{\stg, \channel}^\sschac\l( W \r) \le \epsilon;
+\end{equation*}
+that is, the stegosystem $\stg$ is insecure if the warden $W$ can
+(with high probability) distinguish between the output of
+$\stgenc_k(m, h)$ and draws from $\channel_h^{\abs{\stgenc_k(m,h)}}$,
+even when given access to $\channel_h^b$ through $M$.
+
+A stegosystem $\stg$ is \emph{$(t, q, \ell, \epsilon)$-universsally
+steganographically secret under chosen hiddenttext attack} for channel
+$\channel$ (USS-CHA-$\channel$) if it is $\l( t, q, \ell,
+\epsilon\r)$-SS-CHA-\channel\ for any channel \channel\ that satisfies
+$H_\infty\l( \channel_h^b \r) > 1 \forall h$ drawn from \channel.
+\end{document}
