@@ -1,7 +1,5 @@
 \documentclass[11pt]{article}
 
-\usepackage{mathpazo}
-
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
@@ -18,6 +16,8 @@
 \usepackage{microtype}
 \usepackage{url}
 \usepackage{hyperref}
+
+\usepackage{mathpazo}
 
 % a bit more compact
 \renewcommand\l{\mathopen{}\left}
@@ -118,10 +118,10 @@ Hopper, et. al \todo{cite} define a stegosystem $\stg$ as a pair of
 randomized algorithms $\l( \stgenc, \stgdec \r)$. $\stgenc$ takes as
 input a shared key $k$, a hiddentext message $m$, and a message
 history $h$, and an oracle $M(h)$ that samples according to channel
-distribution $\channel_h^b$, where channels are required to satisfy
-$H_\infty\l( \channel_h^b \r) > 1 \forall h$ drawn from \channel. As
-output, $\stgenc_k^M\l( m, h \r)$ returns a sequence $c_1 \concat c_2
-\concat \ldots \concat c_\ell$ in the support of $\channel_h^{\ell
+distribution $\channel_h^b$, where channels are required to satisfy,
+for all $h$ drawn from \channel, $H_\infty\l( \channel_h^b \r) > 1$.
+As output, $\stgenc_k^M\l( m, h \r)$ returns a sequence $c_1 \concat
+c_2 \concat \ldots \concat c_\ell$ in the support of $\channel_h^{\ell
 b}$. The decryption algorithm $\stgdec_k^M\l( c_1 \concat c_2 \concat
 \ldots \concat c_\ell, h \r)$ returns a message $m$, which should be
 ``correct''; that is, the same message encoded by $\stgenc$, at least
@@ -156,16 +156,64 @@ and running in time at most $t$,
 that is, the stegosystem $\stg$ is insecure if an efficient warden can
 (with high probability) distinguish between the output of
 $\stgenc_k(m, h)$ and draws from $\channel_h^{\abs{\stgenc_k(m,h)}}$,
-even when given access to $\channel_h^b$ through $M$.
-
-A stegosystem $\stg$ is \emph{$(t, q, \ell, \epsilon)$-universally
+even when given access to $\channel_h^b$ through $M$. A stegosystem
+$\stg$ is \emph{$(t, q, \ell, \epsilon)$-universally
 steganographically secret under chosen hiddenttext attack} for channel
 $\channel$ (USS-CHA-$\channel$) if it is $\l( t, q, \ell,
-\epsilon\r)$-SS-CHA-\channel\ for any channel \channel\ that satisfies
-$H_\infty\l( \channel_h^b \r) > 1 \forall h$ drawn from \channel.
+\epsilon\r)$-SS-CHA-\channel\ for any channel \channel\ that
+satisfies, $\forall h$ drawn from \channel, $H_\infty\l( \channel_h^b
+\r) > 1$.
 
 Cachin \todo{cite} takes an information theoretic approach to
-steganographic security. He considers the basic pr
+steganographic security. He considers the basic prisoner's problem,
+where Alice sends either an innocent covertext or a stegotext
+concealing a message to Bob over an open communication line. The
+warden eavesdrops on the line, and must decide whether the
+communication is a covertext or stegotext. Let $P_C$ be the
+distribution of covertexts, and let $P_S$ be the distribution of
+stegotexts; these distributions are known to the warden. Cachin
+defines the overall security of the system in terms of the relative
+entropy between $P_C$ and $P_S$; namely, the stegosystem is
+\emph{information-theoretic perfectly secure} if
+\begin{equation*}
+  D\l( P_C \concat P_S \r) = 0,
+\end{equation*}
+and is \emph{information-theoretic $\epsilon$-secure} if
+\begin{equation*}
+  D\l( P_C \concat P_S \r) \le \epsilon.
+\end{equation*}
+Intuitively, Cachin is claiming that a stegosystem is secure if the
+probability distributions of covertexts and stegotexts are ``close,"
+so that, given a message in the support of $P_C$ and $P_S$, the
+warden has very little reason to believe it was drawn from one
+distribution over the other. Cachin goes on to analyze the decision
+from the framework of hypothesis testing.
+
+Cachin's warden is a much weaker adversary than Hopper's, and
+correspondingly, Hopper's SS-CHA-\channel\ game provides a much
+stronger definition of security. Some key weaknesses in Cachin's
+definition:
+\begin{itemize}
+  \item Cachin's warden receives a single message over the
+    communication line, and must determine her decision. In contrast,
+    Hopper's warden has access to an oracle that can be queried as
+    much as is computationally feasible. Indeed, Cachin's model is
+    roughly equivalent to the SS-CHA-\channel\ game when only a single
+    query is allowed.
+  \item Cachin's warden knows the distribution of possible messages
+    chosen by Alice, but does not know the message. Hopper, however,
+    allows for an interactive, chosen hiddentext attack.
+  \item Hopper's channels are all conditioned on the \emph{history} of
+    previously drawn samples. And since his warden is allowed to
+    specify arbitrary history to the oracles, a stegosystem that meets
+    SS-CHA-\channel\ security should be secure for any valid history
+    of communication on \channel. On the other hand, Cachin's model,
+    because it depends on static probability distributions, does not
+    capture this sequential element of real communication. Even if
+    $P_C$ and $P_S$ were themselves dependent on history, Cachin's
+    model would only be able to claim security of the stegosystem for
+    the particular history leading up to his experiment.
+\end{itemize}
 
 \subsection{Good Stego}
 
