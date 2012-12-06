@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[11pt]{article}
 
 \usepackage{mathpazo}
 
@@ -43,8 +43,8 @@
 
 \begin{document}
 
-Cachin paper:
 
+\subsection{Primitives}
 Let $P_X$ be a probability mass function with support $\chi$, where $X$
 is a discrete random variable taking the values in $\chi$. The
 \emph{entropy} of $X$ is
@@ -76,13 +76,37 @@ probable'' element in $\chi$ according to $P_X$. For example, if there
 is some element $x_0$ with $P_X(x_0) = 1$, then $H_\infty(X) = 0$
 (there is no uncertainty in $X$). Suppose the most probable element
 $x_0$ has probability $P_X(x_0) = 1/2$. Intuitively, the uncertainty
-is unity; that is, we can guess that the next value of $X$ will be $x_0$
-to within a single coin flip. Indeed, evaluating
+is unity; that is, we can guess that the next value of $X$ will be
+$x_0$ to within a single coin flip. Indeed, evaluating
 Eqn.~\eqref{eq:min-entropy} for such a distribution shows that
 $H_\infty\l( X \r) = 1$.
 
+Give two probability mass functions $P_X$ and $P_Y$, both with support
+$\chi$, the \emph{relative entropy}, also called the Kullback-Leibler
+divergence, from $P_X$ to $P_Y$ is defined to be
+\begin{equation}
+  D \l( P_X \concat P_Y \r) =
+  \sum_{x \in \chi} P_X(x) \lg \frac{P_X(x)}{P_Y(x)}.
+\end{equation}
+Intuitively, the relative entropy is a measure of the difference
+between $P_X$ and $P_Y$, although it is important to note that it is
+not symmetric; that is, $D \l( P_X \concat P_Y \r) \ne D \l( P_Y
+\concat P_X \r)$. However, $D \l( P_X \concat P_Y \r) = 0 $ if and
+only if $P_X = P_Y$, and increases indefinitely as $P_Y$ diverges from
+$P_X$.
+
+A \emph{channel} as defined by \todo{cite} is a distribution on
+timestamped bit sequences; i.e., a channel \channel\ is a distribution
+with support $\set{\l( \bit, t_1 \r), \l( \bit, t_2 \r), \ldots }$,
+where each $t_i \le t_{i+1}$. The intent is to model communication,
+where not just the content but also the timing of the communication
+may be relevant. 
+
+\subsection{Security Definitions}
 Hopper paper:
 
+Hopper, et. al \todo{cite} defines the security of a stegosystem in
+terms of a game.
 Give the warden $W$ access to $M\l( h \r)$, which returns draws from
 $\channel_h^b$, and an oracle $\Ora$. The oracle $\Ora$ is either
 $\stgenc_k$ or a function $O(\cdot, \cdot)$, where $O(m, h)$ simply
@@ -108,14 +132,17 @@ and running in time at most $t$,
 \begin{equation*}
   \advan_{\stg, \channel}^\sschac\l( W \r) \le \epsilon;
 \end{equation*}
-that is, the stegosystem $\stg$ is insecure if the warden $W$ can
+that is, the stegosystem $\stg$ is insecure if an efficient warden can
 (with high probability) distinguish between the output of
 $\stgenc_k(m, h)$ and draws from $\channel_h^{\abs{\stgenc_k(m,h)}}$,
 even when given access to $\channel_h^b$ through $M$.
 
-A stegosystem $\stg$ is \emph{$(t, q, \ell, \epsilon)$-universsally
+A stegosystem $\stg$ is \emph{$(t, q, \ell, \epsilon)$-universally
 steganographically secret under chosen hiddenttext attack} for channel
 $\channel$ (USS-CHA-$\channel$) if it is $\l( t, q, \ell,
 \epsilon\r)$-SS-CHA-\channel\ for any channel \channel\ that satisfies
 $H_\infty\l( \channel_h^b \r) > 1 \forall h$ drawn from \channel.
+
+Cachin paper:
+
 \end{document}
