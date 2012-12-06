@@ -106,20 +106,35 @@ timestamped bit sequences; i.e., a channel \channel\ is a distribution
 with support $\set{\l( \bit, t_1 \r), \l( \bit, t_2 \r), \ldots }$,
 where each $t_i \le t_{i+1}$. The intent is to model communication,
 where not just the content but also the timing of the communication
-may be relevant.
+may be relevant. Since a particular draw from the distribution
+\channel\ depends the history of previously drawn bits, define
+$\channel_h$ to be the distribution conditioned on history $h$.
+Furthermore, it is useful to think of drawing from the channel in
+chunks of $b$ bits at a time, so define $\channel_h^b$ to be the
+distribution on the next $b$ bits after the history $h$.
 
 \subsection{Security Definitions}
-Hopper paper:
+Hopper, et. al \todo{cite} define a stegosystem $\stg$ as a pair of
+randomized algorithms $\l( \stgenc, \stgdec \r)$. $\stgenc$ takes as
+input a shared key $k$, a hiddentext message $m$, and a message
+history $h$, and an oracle $M(h)$ that samples according to channel
+distribution $\channel_h^b$, where channels are required to satisfy
+$H_\infty\l( \channel_h^b \r) > 1 \forall h$ drawn from \channel. As
+output, $\stgenc_k^M\l( m, h \r)$ returns a sequence $c_1 \concat c_2
+\concat \ldots \concat c_\ell$ in the support of $\channel_h^{\ell
+b}$. The decryption algorithm $\stgdec_k^M\l( c_1 \concat c_2 \concat
+\ldots \concat c_\ell, h \r)$ returns a message $m$, which should be
+``correct''; that is, the same message encoded by $\stgenc$, at least
+$2/3$ of the time.
 
-Hopper, et. al \todo{cite} defines the security of a stegosystem in
-terms of a game.
-Give the warden $W$ access to $M\l( h \r)$, which returns draws from
-$\channel_h^b$, and an oracle $\Ora$. The oracle $\Ora$ is either
-$\stgenc_k$ or a function $O(\cdot, \cdot)$, where $O(m, h)$ simply
-returns draws from $\channel_h^{\abs{\stgenc_k\l( m, h \r)}}$. The
-warden also has access to randomness $r$. The warden's advantage
-against the steganographic secrecy under chosen hiddentext attack for
-channel $\channel$ of stegosystem $\stg$ is defined by
+The authors define the security of a stegosystem in terms of a game.
+The adversarial warden $W$ is given access to $M\l( h \r)$, which
+returns draws from $\channel_h^b$, and an oracle $\Ora$. The oracle
+$\Ora$ is either $\stgenc_k$ or a function $O(\cdot, \cdot)$, where
+$O(m, h)$ simply returns a draw from $\channel_h^{\abs{\stgenc_k\l( m,
+h \r)}}$. The warden also has access to randomness $r$. The warden's
+advantage against the steganographic secrecy under chosen hiddentext
+attack for channel $\channel$ of stegosystem $\stg$ is defined by
 Hopper et.\ al to be
 \begin{align*}
   \advan_{\stg, \channel}^\sschac \l( W \r) = \abs {
@@ -149,10 +164,12 @@ $\channel$ (USS-CHA-$\channel$) if it is $\l( t, q, \ell,
 \epsilon\r)$-SS-CHA-\channel\ for any channel \channel\ that satisfies
 $H_\infty\l( \channel_h^b \r) > 1 \forall h$ drawn from \channel.
 
-Cachin paper:
+Cachin \todo{cite} takes an information theoretic approach to
+steganographic security. He considers the basic pr
+
+\subsection{Good Stego}
 
 \section{Bad Stego}
-\section{Good Stego}
 \section{Conclusion}
 \section{References}
 
