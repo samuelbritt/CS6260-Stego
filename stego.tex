@@ -76,7 +76,8 @@ or the sun.
 
 Gustavus Simmons, in 1984, initiated the scientific research on
 steganography in ``The Prisoner's Problem and the Subliminal
-Channel''[3] where he illustrated the concept of steganography with the
+Channel'' \todo{cite} [3] where he illustrated the concept of
+steganography with the
 help of Prisoner's Problem. Two prisoners, Alice and Bob, attempt to
 devise a plan to escape even though they are locked up in areas and
 are prohibited from engaging in private communication with each other.
@@ -191,6 +192,32 @@ is that Bob is somehow aware of when Alice is active, even though he
 has no way of doing so. Although it does not affect the outcome, it
 does help in understanding the security properties of the
 steganographic system.
+
+\section{Steganalysis} 
+The goal of steganography is to conceal the fact that two parties are
+exchanging confidential information. Unlike cryptography, where the
+attackers ``wins'' only if it deciphers and recovers the original
+message, an adversary against a steganography systems ``wins'' even if
+it realizes the existence of secret message, without having to recover
+the hidden text. Steganalysis deals with analyzing the channel to
+detect the presence of stego or hidden information. The primary step
+is to identify suspected stego media \todo{cite} [1]. The suspected media then
+undergoes various transformation and/or modifications in order to
+reveal the existence of an embedded message. 
+
+The suspected media is not analyzed by itself without other factors.
+An adversary performing the steganalysis will also have knowledge of
+all communications within the channel, though an adversary may not
+have all that information all the time. There are two classes of
+steganography attacks can be used by the snooping adversary Wendy
+\todo{cite} [1].
+Wendy may employ a steganography only attack in which he attacker has
+access to only the stegotext containing the hidden message. The other
+class of attack is the known cover attack in which the attacker has
+the original covertext as well as the stegotext. The specific
+steganalysis attack will depend on what the hiddentext is contained
+in. In the next sections we will look at some common steganographic
+applications and methods for analyzing these applications.
 
 \section{Security Definitions}
 \subsection{Primitives}
