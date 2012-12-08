@@ -534,7 +534,46 @@ frequency analysis, signal distance measurement, phase and audio
 analysis. They also state various frame correlation analysis algorithm
 and other video steganalysis techniques.
 
+\subsection{Network Steganography}
+A TCP/IP datagram header contains various fields, which can be used
+for hiding data. \emph{Steganography and Steganalysis: Different
+Approaches} \todo{}[6] demonstrates how various IP datagram fields
+like Flag, Identification and Initial Sequence Number (ISN) can be
+used to hide information in the network packet. Similarly the packet
+structure of the Internet Control Message Protocol (ICMP) can be
+exploited to send secret information.
+
+However, various packet analysis techniques have been developed to
+detect network steganography. Unusual patterns are developed in case
+of using TCP/IP packets for network steganography and the presence of
+hidden information can be detected \todo{} [1]. As seen before, stegosystems
+that use non-random placement of bits can be easily detected by Wendy.
+Algorithms like this have better security if, instead of hiding the
+message bit-by-bit in known locations, an entire IP payload is random
+output that hashes to a single bit. The Warden will still be
+suspicious of the garbled output, but depending on the channel it
+could be expected.
+
 \section{Conclusion}
+Stegosystems have existed for a long time. The idea of hiding a
+message in plain sight is useful when just the act of hiding a message
+is problem enough. The prisoner game with Alice, Bob, and Wendy is the
+common model for boiling down steganographic systems to their base
+components. From this model we are able to understand the notions of
+security tied to steganographic systems. Although each implementation
+of steganography can be different, steganalysis is the act of looking
+for the existence of hiddentext as well as the actual hiddentext. Some
+of the common covertexts include multimedia and text itself. We went
+over some applications that use these as covertexts and look at why
+they seem to be invalid for security.
+
+We see that perfect stegosystems are difficult to implement because
+Wendy can win by identifying a communication as being a stegotext.
+This makes the channel and stegosystem very important. Arbitrary
+implementations like we have seen above are famous for demonstrating
+basic steganography, but offer little in the way of a secure
+stegosystem.
+
 \section{References}
 
 \end{document}

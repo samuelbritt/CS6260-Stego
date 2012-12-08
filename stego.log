@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  7 DEC 2012 23:22
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  7 DEC 2012 23:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2062,7 +2062,7 @@ LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 52.
 [1
 
-{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./model.pdf_tex <model.pdf, id=64, 388.38454pt x 152.5701pt>
+{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./model.pdf_tex <model.pdf, id=68, 388.38454pt x 152.5701pt>
 File: model.pdf Graphic file (type pdf)
 <use model.pdf>
 Package pdftex.def Info: model.pdf used on input line 52.
@@ -2082,30 +2082,30 @@ File: omsppl.fd
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 367.
-[7] [8] [9] [10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 540.
-[11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 540.
+[7] [8] [9] [10] [11]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 579.
+[12]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 579.
 (./stego.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 540.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 540.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 579.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 579.
 Package rerunfilecheck Info: File `stego.out' has not changed.
-(rerunfilecheck)             Checksum: FC33B8F79B5D2E02373005EF004BCF07;695.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 540.
+(rerunfilecheck)             Checksum: F3D2BD6AA5CA78468BADB9ECC4E7AE08;764.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 579.
  ) 
 Here is how much of TeX's memory you used:
- 18761 strings out of 493488
- 366482 string characters out of 3141326
+ 18771 strings out of 493488
+ 366581 string characters out of 3141326
  414883 words of memory out of 3000000
- 21558 multiletter control sequences out of 15000+200000
- 50635 words of font info for 256 fonts, out of 3000000 for 9000
+ 21559 multiletter control sequences out of 15000+200000
+ 51015 words of font info for 261 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  36i,14n,43p,307b,965s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on stego.pdf (11 pages, 142714 bytes).
+Output written on stego.pdf (12 pages, 145683 bytes).
 PDF statistics:
- 165 PDF objects out of 1000 (max. 8388607)
- 138 compressed objects within 2 object streams
- 28 named destinations out of 1000 (max. 500000)
- 40038 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 173 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
+ 40046 words of extra memory for PDF output out of 42996 (max. 10000000)
 
