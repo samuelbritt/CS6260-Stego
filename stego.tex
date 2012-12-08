@@ -14,6 +14,7 @@
 \usepackage[section]{placeins}
 \usepackage{flafter}
 \usepackage{microtype}
+\usepackage{subfig}
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{hyperref}
@@ -41,6 +42,8 @@
 \newcommand\stg{\scheme{S}}
 \newcommand\stgenc{\algo{SE}}
 \newcommand\stgdec{\algo{SD}}
+
+
 
 \title{Analysis of Stegosystems}
 \author{Sam Britt, Tushar Humbe, Ben Perry, Sanchita Vijayvargiya}
@@ -76,7 +79,7 @@ or the sun.
 
 Gustavus Simmons, in 1984, initiated the scientific research on
 steganography in ``The Prisoner's Problem and the Subliminal
-Channel'' \todo{cite} [3] where he illustrated the concept of
+Channel'' \cite{Simmons1984} where he illustrated the concept of
 steganography with the
 help of Prisoner's Problem. Two prisoners, Alice and Bob, attempt to
 devise a plan to escape even though they are locked up in areas and
@@ -201,7 +204,7 @@ message, an adversary against a steganography systems ``wins'' even if
 it realizes the existence of secret message, without having to recover
 the hidden text. Steganalysis deals with analyzing the channel to
 detect the presence of stego or hidden information. The primary step
-is to identify suspected stego media \todo{cite} [1]. The suspected media then
+is to identify suspected stego media \cite{Das}. The suspected media then
 undergoes various transformation and/or modifications in order to
 reveal the existence of an embedded message. 
 
@@ -210,7 +213,7 @@ An adversary performing the steganalysis will also have knowledge of
 all communications within the channel, though an adversary may not
 have all that information all the time. There are two classes of
 steganography attacks can be used by the snooping adversary Wendy
-\todo{cite} [1].
+\cite{Das}.
 Wendy may employ a steganography only attack in which he attacker has
 access to only the stegotext containing the hidden message. The other
 class of attack is the known cover attack in which the attacker has
@@ -271,7 +274,7 @@ not symmetric; that is, $D \l( P_X \concat P_Y \r) \ne D \l( P_Y
 only if $P_X = P_Y$, and increases indefinitely as $P_Y$ diverges from
 $P_X$.
 
-A \emph{channel} as defined by \todo{cite} is a distribution on
+A \emph{channel} as defined by \cite{Hopper2002} is a distribution on
 timestamped bit sequences; i.e., a channel \channel\ is a distribution
 with support $\set{\l( \bit, t_1 \r), \l( \bit, t_2 \r), \ldots }$,
 where each $t_i \le t_{i+1}$. The intent is to model communication,
@@ -284,7 +287,7 @@ chunks of $b$ bits at a time, so define $\channel_h^b$ to be the
 distribution on the next $b$ bits after the history $h$.
 
 \subsection{Security Definitions}
-Hopper, et. al \todo{cite} define a stegosystem $\stg$ as a pair of
+Hopper, et. al \cite{Hopper2002} define a stegosystem $\stg$ as a pair of
 randomized algorithms $\l( \stgenc, \stgdec \r)$. $\stgenc$ takes as
 input a shared key $k$, a hiddentext message $m$, and a message
 history $h$, and an oracle $M(h)$ that samples according to channel
@@ -334,7 +337,7 @@ $\channel$ (USS-CHA-$\channel$) if it is $\l( t, q, \ell,
 satisfies, $\forall h$ drawn from \channel, $H_\infty\l( \channel_h^b
 \r) > 1$.
 
-Cachin \todo{cite} takes an information theoretic approach to
+Cachin \cite{Cachin2004} takes an information theoretic approach to
 steganographic security. He considers the basic prisoner's problem,
 where Alice sends either an innocent covertext or a stegotext
 concealing a message to Bob over an open communication line. The
@@ -422,13 +425,30 @@ Still image steganography is susceptible to various known-cover
 attacks. Analyzing the cover image and the stego image can reveal the
 existence of hidden message. For example, the GIF image format uses
 only 8-bits per pixel and changing the LSB can result in large change
-in the intensity of the pixel \todo{cite}[2]. Cmorik and Sum\'ak \todo{}
-[7] demonstrate various structural and visual techniques to reveal
-modification of the original image. For example, changing the image
-pixels to a black and white scale reveals modifications in the LSB,
-and thus the stegotext \todo{} [7].
+in the intensity of the pixel \cite{Meghanathan}. Cmorik and Sum\'ak
+\cite{Cmorik} demonstrate various structural and visual techniques to
+reveal modification of the original image. For example, changing the
+image pixels to a black and white scale reveals modifications in the
+LSB, and thus the stegotext \cite{Cmorik} (see Figure~\ref{fig:stego-image}).
 
-\todo{the image}
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{.7\linewidth}
+    \centering
+    \subfloat[The image on the left is the original image, while the
+    one on the right is the stego image.]{
+      \includegraphics[width=\linewidth]{greyscale}
+    }\\
+    \subfloat[Changing the pixels to a black and white scale reveals
+      the fact that the image on the right contains secret message in
+      the first half of the pixels.]{
+      \includegraphics[width=\linewidth]{bw}
+    }
+    \caption{An example of steganalysis via conversion from greyscale
+    to black-and-white.}
+    \label{fig:stego-image}
+  \end{minipage}
+\end{figure}
 
 If the location of the bit(s) in an image does not change then simple
 attacks can run against the stegosystem and win with ease. The
@@ -444,7 +464,7 @@ documents using certain predefined schemes like selected characters,
 special symbols, extra white spaces, position of tag attributes in
 html documents etc. 
 
-Dulera, et. al \todo{}[4] explain several techniques used in text
+Dulera, et. al \cite{Dulera} explain several techniques used in text
 steganography. For example, the alphabet space is divided into two
 parts, say letters with a curvature in a shape (B, C, Q), that
 represent bit ``0'', while others (A, M, T), represent bit ``1''. Alice
@@ -475,7 +495,7 @@ encryption scheme.
 Messages have also been embedded in HTML documents using the html tag
 attributes. This approaches exploits the structure of an HTML document
 as well as the properties of the media, that is the Internet, to hide
-and share information. \todo{}Garg[5] demonstrates various approaches
+and share information. Garg \cite{Garg2011} demonstrates various approaches
 of concealing information in HTML documents. For example, if an html
 tag has the ``class'' attribute before the ``style,'' it represents
 bit ``0,'' else bit ``1.'' Thus it exploits the fact that changing the
@@ -489,7 +509,8 @@ manner as above.
 Improvement in the Voice over Internet Protocol (VoIP) and other
 peer-to-peer~(P2P) protocols make hiding information in audio signals
 possible. Furthermore, audio signals contain a large amount of
-unpredictable random noise, facilitating covert communication \todo{}[2]. A
+unpredictable random noise, facilitating covert communication
+\cite{Meghanathan}. A
 video signal consists of audio and images. Thus, most of the
 techniques used in Image and Audio Steganography can be applied to
 modify a video signal. Some of the common techniques in audio and
@@ -506,7 +527,7 @@ to look for the hiddentext, in the LSB.
 Phase encoding makes small changes in the audio signal phase which are
 difficult for the human auditory system to detect, making it a good
 place to hide a message. The secret message bits are encoded as phase
-shifts in the digital signal\todo{} [1]. If the phase shifts only exist in
+shifts in the digital signal\cite{Das}. If the phase shifts only exist in
 stegotext, then winning the game are trivial for Wendy. However if
 arbitrary phase shifts occur commonly in covertext, then this task
 becomes much harder. Periodicity of phase changes could help to
@@ -521,23 +542,24 @@ delay smaller than this is used then these echoes are not perceived by
 the human ear. Because this technique adds faint, possibly
 imperceptible, echoing to the original covertext, this method requires
 higher data transmission rate and quality for the transmitted
-stegotext\todo{}[2]. The binary message to be hidden is embedded in the delay
-parameter of the echo\todo{}[2].
+stegotext\cite{Meghanathan}. The binary message to be hidden is
+embedded in the delay parameter of the echo.
 
 Audio and video steganalysis techniques are limited due to the
 advancement in audio steganography and the nature of audio/video
 signals which can consists a high percentage of noise and other
-unpredictable random bits. In \emph{Steganalysis Algorithms for Detecting
-the Hidden Information in Image, Audio and Video} \todo{} [2], Meghanathan and
-Nayak list various audio and video steganalysis techniques related to
-frequency analysis, signal distance measurement, phase and audio
-analysis. They also state various frame correlation analysis algorithm
-and other video steganalysis techniques.
+unpredictable random bits. In \emph{Steganalysis Algorithms for
+  Detecting the Hidden Information in Image, Audio and
+Video}\cite{Meghanathan}, Meghanathan and Nayak list various audio and
+video steganalysis techniques related to frequency analysis, signal
+distance measurement, phase and audio analysis. They also state
+various frame correlation analysis algorithm and other video
+steganalysis techniques.
 
 \subsection{Network Steganography}
 A TCP/IP datagram header contains various fields, which can be used
 for hiding data. \emph{Steganography and Steganalysis: Different
-Approaches} \todo{}[6] demonstrates how various IP datagram fields
+Approaches} \cite{Szczypiorski} demonstrates how various IP datagram fields
 like Flag, Identification and Initial Sequence Number (ISN) can be
 used to hide information in the network packet. Similarly the packet
 structure of the Internet Control Message Protocol (ICMP) can be
@@ -546,7 +568,7 @@ exploited to send secret information.
 However, various packet analysis techniques have been developed to
 detect network steganography. Unusual patterns are developed in case
 of using TCP/IP packets for network steganography and the presence of
-hidden information can be detected \todo{} [1]. As seen before, stegosystems
+hidden information can be detected \cite{Das}. As seen before, stegosystems
 that use non-random placement of bits can be easily detected by Wendy.
 Algorithms like this have better security if, instead of hiding the
 message bit-by-bit in known locations, an entire IP payload is random
@@ -574,6 +596,7 @@ implementations like we have seen above are famous for demonstrating
 basic steganography, but offer little in the way of a secure
 stegosystem.
 
-\section{References}
+\bibliographystyle{elsarticle-num}
+\bibliography{Stego}
 
 \end{document}
