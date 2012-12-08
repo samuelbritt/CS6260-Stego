@@ -60,5 +60,6 @@
     \put(0.1229526,0.2202503){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Alice}}}%
     \put(0.79143506,0.2202503){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Bob}}}%
     \put(0.56526718,0.04405183){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Wendy}}}%
+    \put(0.50929492,0.15675312){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$C'$}}}%
   \end{picture}%
 \endgroup%
