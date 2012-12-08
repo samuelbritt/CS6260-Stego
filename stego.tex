@@ -117,8 +117,35 @@ message. Before concluding, we will look at stegosystems and discuss
 issues that these may have in terms of our notions of security.
 
 \section{Steganographic Model}
+There are variations in steganographic models, but most papers will
+agree that a good model needs to include three parties and a monitored
+communication channel. The three active members of the model are
+Alice, Bob, and Wendy. Prisoners Alice and Bob are trying to hide a
+message, hiddentext, from Wendy the warden. The warden monitors the
+communication on the channel and inspects many messages on the
+channel. Valid channel messages are known as covertext, these are
+messages that should not arouse any suspicion from Wendy. Alice will
+run an embedding algorithm on her hiddentext and some covertext to
+generate her stegotext. Bob will run an extracting algorithm to obtain
+the hiddentext from the stegotext. These are all of the needed pieces
+in steganography. If Alice and Bob are able to pass a message which
+includes hiddentext through this monitored channel without Wendy
+becoming aware of the presence of hiddentext, then Alice and Bob have
+successfully sent a stegotext. If Alice and Bob are not trying to hide
+a message then they are just sending covertext. The below model
+illustrates steganography in a similar manner to what is described
+above.
 
-\input{model.pdf_tex}
+\begin{figure}[htbp]
+  \label{fig:model}
+  \centering
+  \input{model.pdf_tex}
+  \begin{minipage}[t]{.8\linewidth}
+    \centering
+    \caption{The basic steganographic model. Alice attempts to send
+    message $m$ to Bob, concealing it inside the stegotext $C'$.}
+  \end{minipage}
+\end{figure}
 
 \section{Security Definitions}
 \subsection{Primitives}
