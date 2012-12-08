@@ -485,13 +485,55 @@ an HTML document, allows you to communicate secret messages with ease.
 However, the scheme fails under chosen hiddentext attack in the same
 manner as above.
 
+\subsection{Audio and Video Steganography}
+Improvement in the Voice over Internet Protocol (VoIP) and other
+peer-to-peer~(P2P) protocols make hiding information in audio signals
+possible. Furthermore, audio signals contain a large amount of
+unpredictable random noise, facilitating covert communication \todo{}[2]. A
+video signal consists of audio and images. Thus, most of the
+techniques used in Image and Audio Steganography can be applied to
+modify a video signal. Some of the common techniques in audio and
+video steganography are briefly described below.
 
-% subsection text_steganography (end)
+As with image steganography the least significant bit can be used to
+encode secret messages. Similar to images, each bit of the hiddentext
+is embedded in the LSB of each sample. This minor change cannot be
+distinguished by the human visual or auditory system. Given the same
+oracle access as before Wendy should be able to differentiate the real
+world and the random world without much difficulty if she knows where
+to look for the hiddentext, in the LSB.
+ 
+Phase encoding makes small changes in the audio signal phase which are
+difficult for the human auditory system to detect, making it a good
+place to hide a message. The secret message bits are encoded as phase
+shifts in the digital signal\todo{} [1]. If the phase shifts only exist in
+stegotext, then winning the game are trivial for Wendy. However if
+arbitrary phase shifts occur commonly in covertext, then this task
+becomes much harder. Periodicity of phase changes could help to
+identify the stegotext by varying the length of the hiddentext and
+looking for phase changes.
 
+The last common method that we will look at is echo hiding. An echo
+consists of three parts that can be manipulated to hide information.
+The three parameters of an echo are amplitude, decay rate, and delay.
+Echoes must have minimum delay to be heard by the human ear. If a
+delay smaller than this is used then these echoes are not perceived by
+the human ear. Because this technique adds faint, possibly
+imperceptible, echoing to the original covertext, this method requires
+higher data transmission rate and quality for the transmitted
+stegotext\todo{}[2]. The binary message to be hidden is embedded in the delay
+parameter of the echo\todo{}[2].
 
-\subsection{Good Stego}
+Audio and video steganalysis techniques are limited due to the
+advancement in audio steganography and the nature of audio/video
+signals which can consists a high percentage of noise and other
+unpredictable random bits. In \emph{Steganalysis Algorithms for Detecting
+the Hidden Information in Image, Audio and Video} \todo{} [2], Meghanathan and
+Nayak list various audio and video steganalysis techniques related to
+frequency analysis, signal distance measurement, phase and audio
+analysis. They also state various frame correlation analysis algorithm
+and other video steganalysis techniques.
 
-\section{Bad Stego}
 \section{Conclusion}
 \section{References}
 
