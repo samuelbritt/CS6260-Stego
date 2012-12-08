@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  7 DEC 2012 23:11
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  7 DEC 2012 23:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2062,7 +2062,7 @@ LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 52.
 [1
 
-{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./model.pdf_tex <model.pdf, id=56, 388.38454pt x 152.5701pt>
+{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./model.pdf_tex <model.pdf, id=68, 388.38454pt x 152.5701pt>
 File: model.pdf Graphic file (type pdf)
 <use model.pdf>
 Package pdftex.def Info: model.pdf used on input line 52.
@@ -2082,30 +2082,34 @@ File: omsppl.fd
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 367.
-[7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 403.
-[8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 403.
+[7] [8]
+Missing character: There is no â in font pplr7t!
+Missing character: There is no € in font pplr7t!
+Missing character: There is no ™ in font pplr7t!
+[9]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 498.
+[10]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 498.
 (./stego.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 403.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 403.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 498.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 498.
 Package rerunfilecheck Info: File `stego.out' has not changed.
-(rerunfilecheck)             Checksum: 6BF5DC3FD0AD0FFE061B77A4716EF2B1;525.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 403.
+(rerunfilecheck)             Checksum: 68D737B911C9DE0A2A20629E371600C5;723.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 498.
  ) 
 Here is how much of TeX's memory you used:
- 18727 strings out of 493488
- 366151 string characters out of 3141326
- 414841 words of memory out of 3000000
- 21554 multiletter control sequences out of 15000+200000
- 49272 words of font info for 238 fonts, out of 3000000 for 9000
+ 18745 strings out of 493488
+ 366340 string characters out of 3141326
+ 414883 words of memory out of 3000000
+ 21559 multiletter control sequences out of 15000+200000
+ 49726 words of font info for 244 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  36i,14n,43p,307b,965s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on stego.pdf (8 pages, 132839 bytes).
+Output written on stego.pdf (10 pages, 139632 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 120 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
- 40022 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 165 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
+ 40046 words of extra memory for PDF output out of 42996 (max. 10000000)
 

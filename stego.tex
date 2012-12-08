@@ -394,6 +394,101 @@ difficult or impossible. In contrast, knowledge about $P_S$ and
 $P_C$ might be easier to determine for a scheme couched in Cachin's
 framework.
 
+\section{Steganographic Applications}
+Over the years, various steganography techniques have been used to
+send secret messages, embedded in innocuous media. The applications
+exploit the structure of the media to conceal sensitive information.
+Common modern techniques of steganography can be classified as image
+steganography, audio and video steganography, text steganography and
+network steganography.
+
+\subsection{Image Steganography}
+Hiding information in digital images is one of the most popular
+steganography techniques. A digital image is a representation of
+pixels. Pixels are typically made of three color channels, for example
+red-green-blue, and each color channel will have have an intensity
+assigned to it. One color channel is normally 8 bits wide, but the
+size can vary. Changing the least significant bit (LSB) of each color
+channel intensity will change the resulting pixel very slightly.
+Steganographic applications can encode three bits of binary data into
+every pixel in an image. The change will likely not be detectable by
+the human eye. There are various variations in this techniques. The
+number of bits per pixel can be varied or several pixels could be used
+to hide one bit of information. Sometimes a fixed number of pixels,
+previously decided by the two parties, are skipped to provide more
+obscurity.
+
+Still image steganography is susceptible to various known-cover
+attacks. Analyzing the cover image and the stego image can reveal the
+existence of hidden message. For example, the GIF image format uses
+only 8-bits per pixel and changing the LSB can result in large change
+in the intensity of the pixel \todo{cite}[2]. Cmorik and Sum\'ak \todo{}
+[7] demonstrate various structural and visual techniques to reveal
+modification of the original image. For example, changing the image
+pixels to a black and white scale reveals modifications in the LSB,
+and thus the stegotext \todo{} [7].
+
+\todo{the image}
+
+If the location of the bit(s) in an image does not change then simple
+attacks can run against the stegosystem and win with ease. The
+simplest attack would be to look in those locations when calling the
+oracle with  the all 1's message and the all 0's message. If the
+location of the bit(s) is unchanging we can expect that the two
+locations will be different even if the coverimage is new.
+
+\subsection{Text Steganography}
+\label{sub:text_steganography}
+Text steganography involves hiding messages in plain text or text
+documents using certain predefined schemes like selected characters,
+special symbols, extra white spaces, position of tag attributes in
+html documents etc. 
+
+Dulera, et. al \todo{}[4] explain several techniques used in text
+steganography. For example, the alphabet space is divided into two
+parts, say letters with a curvature in a shape (B, C, Q), that
+represent bit ``0'', while others (A, M, T), represent bit ``1''. Alice
+and Bob will then exchange messages by embedding a bit in the first
+letter of the sentences. Thus if Alice wants to send ``101'' to Bob, the
+transmitted stegotext might look something like
+
+\begin{quote}
+  \itshape Today is a holiday. Burger at Wendy's. My Treat!
+\end{quote}
+
+Such a stegosystem fails Hopper et.\ al's definition of security
+immediately. A warden could launch a simple attack: query the oracle
+on a hiddentext of all ones, and arbitrary history. If the oracle
+returns a text where every sentence begins with letter without
+curvature, accept, otherwise, reject. In the case that the oracle is
+the steganographic embedding algorithm, the warden will always accept.
+In the case that the oracle is not, then the probability of accepting
+is the probability that a draw from the channel returns such a
+sentence, which is unlikely for normal English communication.
+
+Such a scheme is exemplary of the kinds of heuristic schemes that rely
+so heavily on obscurity and not actual security. The success of such a
+scheme in practice relies completely on a warden that is perhaps not
+overly suspicious, or is unaware of the algorithms used in the
+encryption scheme.
+
+Messages have also been embedded in HTML documents using the html tag
+attributes. This approaches exploits the structure of an HTML document
+as well as the properties of the media, that is the Internet, to hide
+and share information. \todo{}Garg[5] demonstrates various approaches
+of concealing information in HTML documents. For example, if an html
+tag has the ``class'' attribute before the ``style,'' it represents
+bit ``0,'' else bit ``1.'' Thus it exploits the fact that changing the
+order of the attribute does not change the appearance of the document.
+Also the popularity of the internet and the high percentage of tags in
+an HTML document, allows you to communicate secret messages with ease.
+However, the scheme fails under chosen hiddentext attack in the same
+manner as above.
+
+
+% subsection text_steganography (end)
+
+
 \subsection{Good Stego}
 
 \section{Bad Stego}
