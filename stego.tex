@@ -49,7 +49,74 @@
 
 \begin{document}
 \maketitle
+
 \section{Introduction}
+Steganography effectively hides a message within plain sight, wherein
+a message being communicated is hidden inside another ostensibly
+innocent message. The message is imperceptible to the adversary that
+acts as a regulator within the communication channel. Only the sender
+and the receiver situated at either ends of the communication channel
+are capable of deciphering existence of the hidden message.
+
+The concept of steganography has been in use since the times of
+ancient Greece. Communicating messages concealed underneath the wax of
+writing tablets and the technique of dotting successive letters are
+some of the ways in which the Greeks steganography. Pirate lore
+includes tales of individuals tattooing secret information, such as
+maps, on their head which would be covered by their hair. Throughout
+World War 2 the grill method was used by the spies. This method
+involved wooden templates which would be placed over seemingly
+harmless text, revealing the secret message. During the same period,
+the Germans devised microdot technology in which a picture could be
+printed clearly even after shrinking it to the size of a dot.  At the
+time of the British Rule in India, freedom fighters, in order to
+communicate with each other used lemon extract to write hidden
+messages on a paper containing general information. The hidden message
+became visible only when the paper was heated by exposure to a candle
+or the sun.
+
+Gustavus Simmons, in 1984, initiated the scientific research on
+steganography in ``The Prisoner's Problem and the Subliminal
+Channel''[3] where he illustrated the concept of steganography with the
+help of Prisoner's Problem. Two prisoners, Alice and Bob, attempt to
+devise a plan to escape even though they are locked up in areas and
+are prohibited from engaging in private communication with each other.
+Both of the prisoners can correspond merely through a single
+communication channel which is scrupulously monitored by the warden of
+the prison. The warden, Wendy, is the adversary in this example and is
+trying to intercept Alice and Bob's private communications. If Alice
+and Bob try to exchange messages that are not completely open to
+Wendy, or ones that seem suspicious to her, they will be put into a
+high security prison forestalling their plan to escape. Messages sent
+without any hidden message are known as covertexts. Messages sent on
+the channel containing a hiddentext are known as stegotexts. At this
+point, Alice and Bob make use of steganography, by sharing a secret
+method or key to hide hiddentexts in some stegotext. Only the two
+accomplices are able to decipher the hidden message based on their
+secrets, while Wendy remains completely oblivious of that message.
+
+In modern digital steganography, the message is hidden in a digital
+file yielding a stegotext. This broad definition is useful because any
+message can be embedded in any sort of digital file whether it is
+text, photo, or other multimedia. Because this definition does not
+define the method in which hiddentext is stored in a stegotext we can
+define any method to do the job. However, not all steganographic
+methods are steganographically secure. Imagine Alice sending a text
+file to Bob and renaming the file extension. At first glance this
+could seem like a reasonable message for Alice to send. Upon further
+investigation Wendy will be able to identify the hidden message or the
+fact that there is a hidden message by comparing this file to other
+files of that extension.
+
+In this paper we are going to go over what is needed in a
+steganographic model in the first section. After understanding the
+model that must be used in stegosystems we will look at the notion of
+steganographic security. Next we will look at steganalysis, the act of
+analyzing suspected stegotexts to verify the suspicion or obtain the
+message. Before concluding, we will look at stegosystems and discuss
+issues that these may have in terms of our notions of security.
+
+\section{Steganographic Model}
 
 \input{model.pdf_tex}
 
