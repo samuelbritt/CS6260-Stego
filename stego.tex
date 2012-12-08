@@ -14,6 +14,7 @@
 \usepackage[section]{placeins}
 \usepackage{flafter}
 \usepackage{microtype}
+\usepackage{enumitem}
 \usepackage{url}
 \usepackage{hyperref}
 
@@ -40,8 +41,6 @@
 \newcommand\stg{\scheme{S}}
 \newcommand\stgenc{\algo{SE}}
 \newcommand\stgdec{\algo{SD}}
-
-\usepackage{tikz}
 
 \title{Analysis of Stegosystems}
 \author{Sam Britt, Tushar Humbe, Ben Perry, Sanchita Vijayvargiya}
@@ -132,20 +131,66 @@ in steganography. If Alice and Bob are able to pass a message which
 includes hiddentext through this monitored channel without Wendy
 becoming aware of the presence of hiddentext, then Alice and Bob have
 successfully sent a stegotext. If Alice and Bob are not trying to hide
-a message then they are just sending covertext. The below model
+a message then they are just sending covertext. Figure~\ref{fig:model}
 illustrates steganography in a similar manner to what is described
 above.
 
 \begin{figure}[htbp]
-  \label{fig:model}
   \centering
-  \input{model.pdf_tex}
   \begin{minipage}[t]{.8\linewidth}
+    \makebox[\textwidth][c]{
+      \input{model.pdf_tex}
+    }
     \centering
     \caption{The basic steganographic model. Alice attempts to send
     message $m$ to Bob, concealing it inside the stegotext $C'$.}
+    \label{fig:model}
   \end{minipage}
 \end{figure}
+
+In order for the steganographic system to function, the following
+elements should be present in the model:
+\begin{itemize}[noitemsep]
+  \item[$C$] Covertext: Has the potential to embed a hiddentext.
+  \item[$m$ \& $m'$] Hiddentext: Text to embed in covertext.
+  \item[$\stgenc$] Embedding  Algorithm: responsible for producing stegotext.
+  \item[$\stgdec$] Extracting Algorithm: responsible for extracting
+    hidden text from the stegotext.
+  \item[$C'$] Stegotext: Contains hiddentext embedded within.
+\end{itemize}
+
+The model above is also known as ``The Prisoner's Problem''. In order
+for Alice to send secret messages to Bob, she needs to hide them by
+using some covertext in such a way that the warden of the prison,
+Wendy, falls short of recognizing anything suspicious about the
+message. Wendy is the passive adversary in the stated case. She
+performs hypothesis testing to check for anything suspicious by
+monitoring both the covertext and stegotext being sent over the
+communication channel.
+
+The embedding algorithm $\stgenc$ performs the task of generating
+stegotext $C'$ by combining $C$ and $m$. The chief function of the
+extracting algorithm $\stgdec$ is obtaining the hidden message $m'$
+from $C'$. The extraction of the covertext $C$ is of little importance
+at receiver end. In one case,
+while Alice is inactive, only the covertext $C$ is sent over the
+communication channel to Bob. Embedding does not take place in this
+case and the passive adversary Wendy observes a rather innocuous text.
+In another case, whilst Alice is active, embedding takes place and the
+stegotext that is generated is sent over the communication channel to
+Bob. Both Wendy and Bob observe the stegotext $C'$, but only Bob is able
+to extract the hidden message from $C'$ with the help of the extracting
+algorithm $\stgdec$ that he possesses. In both the cases, Wendy is oblivious
+of whether Alice is active or not.
+
+In the above model, an assumption has been made about Alice and Bob
+possessing the knowledge of the covertext and the stegotext. Moreover,
+the embedding algorithm must always work regardless of the information
+that $C'$ holds. Another bold assumption that has been made in this case
+is that Bob is somehow aware of when Alice is active, even though he
+has no way of doing so. Although it does not affect the outcome, it
+does help in understanding the security properties of the
+steganographic system.
 
 \section{Security Definitions}
 \subsection{Primitives}
