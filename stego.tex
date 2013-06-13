@@ -17,9 +17,12 @@
 \usepackage{subfig}
 \usepackage{enumitem}
 \usepackage{url}
+\usepackage{tikz}
 \usepackage{hyperref}
 
 \usepackage{mathpazo}
+
+\usetikzlibrary{positioning}
 
 % a bit more compact
 \renewcommand\l{\mathopen{}\left}
@@ -32,6 +35,7 @@
 
 % leave notes to yourself
 \newcommand\todo[1]{\textcolor{red}{\textsc{todo}: #1}}
+
 
 \input{header}
 
@@ -149,6 +153,45 @@ above.
     \caption{The basic steganographic model. Alice attempts to send
     message $m$ to Bob, concealing it inside the stegotext $C'$.}
     \label{fig:model}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+  \label{fig:label}
+  \centering
+  \begin{minipage}[t]{.8\linewidth}
+    \centering
+    \begin{tikzpicture}
+      [
+        >=latex,
+        alg/.style=
+          {
+            draw,
+            rectangle,
+            minimum width=1.5cm,
+            minimum height=.7cm,
+          }
+      ]
+      \node (SE) [alg] {$\stgenc$};
+      \node (C') [right=of SE, label={above:$C'$}] {};
+      \node (SD) [alg,right=of C'] {$\stgdec$};
+      \node (m') [right=of SD] {$m'$};
+      \node (W) [below right=of C'] {Wendy};
+
+      % \path (SE) edge[->] (SD);
+      \draw[->] (SE) -- (SD);
+      \draw[->] (SD) -- (m');
+
+      \draw (C') -- (W);
+
+      \node (C) [left=of SE.200] {$C$};
+      \path (C) edge[->] (SE.200);
+
+      \node (m) [left=of SE.160] {$m$};
+      \path (m) edge[->] (SE.160);
+
+    \end{tikzpicture}
+    \caption{caption}
   \end{minipage}
 \end{figure}
 
